@@ -47,10 +47,10 @@ Pour chaque exercice :
 ### Exercice 1 : État et Effets 
 #### Objectif : Implémenter l'affichage et la recherche de posts
 
-- [ ] 1.1 Compléter le hook `usePosts` pour récupérer les posts depuis l'API dummyjson.com
-- [ ] 1.2 Implémenter le composant `PostList` pour afficher les posts
-- [ ] 1.3 Ajouter la fonctionnalité de recherche par titre ou contenu dans `PostSearch`
-- [ ] 1.4 Documenter votre solution ici
+- [X] 1.1 Compléter le hook `usePosts` pour récupérer les posts depuis l'API dummyjson.com
+- [X] 1.2 Implémenter le composant `PostList` pour afficher les posts
+- [X] 1.3 Ajouter la fonctionnalité de recherche par titre ou contenu dans `PostSearch`
+- [X] 1.4 Documenter votre solution ici
 
 _Votre réponse pour l'exercice 1 :_  
 
@@ -75,10 +75,10 @@ Solution :
 ### Exercice 2 : Hooks Personnalisés
 #### Objectif : Créer des hooks réutilisables
 
-- [ ] 2.1 Créer le hook `useDebounce` pour optimiser la recherche
-- [ ] 2.2 Créer le hook `useLocalStorage` pour persister les préférences utilisateur
-- [ ] 2.3 Utiliser ces hooks dans l'application
-- [ ] 2.4 Documenter votre solution ici
+- [X] 2.1 Créer le hook `useDebounce` pour optimiser la recherche
+- [X] 2.2 Créer le hook `useLocalStorage` pour persister les préférences utilisateur
+- [X] 2.3 Utiliser ces hooks dans l'application
+- [X] 2.4 Documenter votre solution ici
 
 _Votre réponse pour l'exercice 2 :_
 
