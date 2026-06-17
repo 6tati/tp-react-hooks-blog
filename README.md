@@ -70,6 +70,8 @@ Solution :
 - J'ai utilisé useState pour gérer searchTerm.
 - J'ai utilisé useEffect avec [searchTerm] pour relancer fetchPosts à chaque recherche.
 
+
+
 ### Exercice 2 : Hooks Personnalisés
 #### Objectif : Créer des hooks réutilisables
 
@@ -79,10 +81,23 @@ Solution :
 - [ ] 2.4 Documenter votre solution ici
 
 _Votre réponse pour l'exercice 2 :_
-```
-Expliquez votre solution ici
-[Ajoutez vos captures d'écran]
-```
+
+
+J'ai créé un hook personnalisé useDebounce permettant de retarder la mise à jour de la valeur de recherche afin de limiter le nombre d'appels à l'API.
+
+J'ai créé un hook personnalisé useLocalStorage permettant de sauvegarder les préférences utilisateur dans le stockage local du navigateur.
+
+J'ai utilisé useDebounce dans usePosts pour optimiser la recherche et useLocalStorage dans App pour mémoriser le mode de défilement.
+
+Difficultés rencontrées :
+- Comprendre le fonctionnement du debounce avec useEffect.
+- Persister les données dans localStorage.
+
+Solution :
+- Utilisation de setTimeout et clearTimeout dans useDebounce.
+- Utilisation de JSON.stringify et JSON.parse dans useLocalStorage.
+
+
 
 ### Exercice 3 : Optimisation et Context
 #### Objectif : Gérer le thème global et optimiser les rendus

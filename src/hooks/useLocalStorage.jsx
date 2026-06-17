@@ -9,10 +9,19 @@ import { useState, useEffect } from 'react';
 function useLocalStorage(key, initialValue) {
   // TODO: Exercice 2 - Implémenter le hook useLocalStorage
   // 1. Initialiser l'état avec la valeur du localStorage ou la valeur initiale
+  const [storedValue, setStoredValue] = useState(() => {
+    const item = localStorage.getItem(key);
+
+    return item ? JSON.parse(item) : initialValue;
+  });
   // 2. Mettre à jour localStorage quand la valeur change
+
+  useEffect(() => {
+    localStorage.setItem(key, JSON.stringify(storedValue));
+  }, [key, storedValue]);
   // 3. Retourner la valeur et la fonction de mise à jour
-  
-  return [initialValue, () => {}]; // À modifier
+
+  return [storedValue, setStoredValue]; // À modifier
 }
 
 export default useLocalStorage;
