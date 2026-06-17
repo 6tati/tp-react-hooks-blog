@@ -52,11 +52,23 @@ Pour chaque exercice :
 - [ ] 1.3 Ajouter la fonctionnalité de recherche par titre ou contenu dans `PostSearch`
 - [ ] 1.4 Documenter votre solution ici
 
-_Votre réponse pour l'exercice 1 :_
-```
-Expliquez votre solution ici
-[Ajoutez vos captures d'écran]
-```
+_Votre réponse pour l'exercice 1 :_  
+
+J'ai complété le hook usePosts afin de récupérer les données depuis l'API DummyJSON avec fetch et useEffect.
+
+J'ai implémenté le composant PostList pour afficher les articles sous forme de cartes contenant le titre, le contenu et les tags.
+
+J'ai ajouté une fonctionnalité de recherche dans PostSearch. Quand l'utilisateur écrit un mot-clé, la valeur est envoyée à App puis au hook usePosts, qui utilise l'endpoint de recherche :
+
+https://dummyjson.com/posts/search?q=... 
+
+Difficultés rencontrées :
+- La liste des posts ne s'affichait pas car PostList ne faisait pas encore le map des posts.
+- La recherche ne fonctionnait pas au début car useEffect avait [] au lieu de [searchTerm].
+
+Solution :
+- J'ai utilisé useState pour gérer searchTerm.
+- J'ai utilisé useEffect avec [searchTerm] pour relancer fetchPosts à chaque recherche.
 
 ### Exercice 2 : Hooks Personnalisés
 #### Objectif : Créer des hooks réutilisables

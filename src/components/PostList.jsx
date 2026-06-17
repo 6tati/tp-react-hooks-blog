@@ -24,34 +24,72 @@ function PostList({
   infiniteScroll = true
 }) {
   // TODO: Exercice 3 - Utiliser le hook useTheme
-  
+
   // TODO: Exercice 4 - Utiliser useIntersectionObserver pour le défilement infini
-  
+
   // TODO: Exercice 3 - Utiliser useCallback pour les gestionnaires d'événements
   const handlePostClick = (post) => {
     if (onPostClick) {
       onPostClick(post);
     }
   };
-  
+
   const handleTagClick = (e, tag) => {
     e.stopPropagation(); // Éviter de déclencher le clic sur le post
     if (onTagClick) {
       onTagClick(tag);
     }
   };
-  
+
   // TODO: Exercice 1 - Gérer le cas où il n'y a pas de posts
-  
+
   return (
     <div className="post-list">
-      {/* TODO: Exercice 1 - Afficher la liste des posts */}
-      
+      {/* TODO: Exercice 1 - Afficher la liste des posts */
+      //see if there is Posts 
+        posts.length === 0 && !loading && (
+          <div className="alert alert-info">
+            Aucun article trouvé.
+          </div>
+        )
+        
+      }
+      {//display the List of the Posts
+      posts.map((post) => (
+      <div
+        key={post.id}
+        className="card mb-3"
+        onClick={() => handlePostClick(post)}
+      >
+        <div className="card-body">
+          
+          {/* Titre du post */}
+          <h5 className="card-title">{post.title}</h5>
+
+          {/* Contenu du post */}
+          <p className="card-text">{post.body}</p>
+
+          {/* Liste des tags */}
+          <div>
+            {post.tags?.map((tag) => (
+              <button
+                key={tag}
+                className="btn btn-sm btn-outline-secondary me-2"
+                onClick={(e) => handleTagClick(e, tag)}
+              >
+                #{tag}
+              </button>
+            ))}
+          </div>
+
+        </div>
+      </div>
+    ))}
       {/* Afficher le spinner de chargement */}
       {loading && <LoadingSpinner />}
-      
+
       {/* TODO: Exercice 4 - Ajouter la référence pour le défilement infini */}
-      
+
       {/* TODO: Exercice 1 - Ajouter le bouton "Charger plus" pour le mode non-infini */}
     </div>
   );
