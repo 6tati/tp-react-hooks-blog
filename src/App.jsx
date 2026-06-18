@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import './App.css';
 import PostList from './components/PostList';
 import PostSearch from './components/PostSearch';
 import usePosts from './hooks/usePosts';
-import { useCallback } from 'react';
+
 // TODO: Exercice 3 - Importer ThemeToggle
 import ThemeToggle from './components/ThemeToggle';
 // TODO: Exercice 3 - Importer ThemeProvider et useTheme

@@ -102,15 +102,30 @@ Solution :
 ### Exercice 3 : Optimisation et Context
 #### Objectif : Gérer le thème global et optimiser les rendus
 
-- [ ] 3.1 Créer le `ThemeContext` pour gérer le thème clair/sombre
-- [ ] 3.2 Implémenter le composant `ThemeToggle`
-- [ ] 3.3 Utiliser `useCallback` et `useMemo` pour optimiser les performances
-- [ ] 3.4 Documenter votre solution ici
+- [X] 3.1 Créer le `ThemeContext` pour gérer le thème clair/sombre
+- [X] 3.2 Implémenter le composant `ThemeToggle`
+- [X] 3.3 Utiliser `useCallback` et `useMemo` pour optimiser les performances
+- [X] 3.4 Documenter votre solution ici
 
 _Votre réponse pour l'exercice 3 :_
 ```
-Expliquez votre solution ici
-[Ajoutez vos captures d'écran]
+### 3.1 ThemeContext
+Création d'un contexte global pour gérer le thème clair/sombre.
+
+
+### 3.2 ThemeToggle
+Ajout d'un composant permettant de basculer entre les thèmes.
+
+### 3.3 Optimisation
+- useCallback utilisé pour mémoriser la fonction toggleTheme.
+- useMemo utilisé pour mémoriser la valeur du contexte.
+- Le thème est persisté grâce au hook useLocalStorage.
+
+
+### Résultat
+- Changement de thème dynamique.
+- Persistance après rechargement de la page.
+- Réduction des rendus inutiles.
 ```
 
 ### Exercice 4 : Fonctionnalités avancées
