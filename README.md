@@ -131,15 +131,38 @@ Ajout d'un composant permettant de basculer entre les thèmes.
 ### Exercice 4 : Fonctionnalités avancées
 #### Objectif : Ajouter des fonctionnalités de chargement et détail
 
-- [ ] 4.1 Implémenter le chargement infini des posts avec `useIntersectionObserver`
-- [ ] 4.2 Créer le composant `PostDetails` pour afficher les détails d'un post
-- [ ] 4.3 Ajouter la fonctionnalité de filtrage par tags
-- [ ] 4.4 Documenter votre solution ici
+- [X] 4.1 Implémenter le chargement infini des posts avec `useIntersectionObserver`
+- [X] 4.2 Créer le composant `PostDetails` pour afficher les détails d'un post
+- [X] 4.3 Ajouter la fonctionnalité de filtrage par tags
+- [X] 4.4 Documenter votre solution ici
 
 _Votre réponse pour l'exercice 4 :_
 ```
-Expliquez votre solution ici
-[Ajoutez vos captures d'écran]
+J'ai implémenté le chargement infini grâce au hook personnalisé useIntersectionObserver. Lorsque l'utilisateur atteint le bas de la liste, de nouveaux posts sont automatiquement chargés.
+
+J'ai créé le composant PostDetails permettant d'afficher les informations détaillées d'un article lorsque l'utilisateur clique dessus.
+
+J'ai ajouté un système de filtrage par tags. Lorsqu'un tag est sélectionné, seuls les articles associés à ce tag sont affichés.
+
+J'ai également ajouté un mode alternatif avec un bouton "Charger plus" lorsque le défilement infini est désactivé.
+
+Difficultés rencontrées :
+
+Déclencher le chargement au bon moment sans créer de boucles infinies.
+Gérer correctement les dépendances de useEffect et useCallback.
+Faire fonctionner ensemble la recherche, les tags et le chargement progressif.
+
+Solution :
+
+Utilisation de useIntersectionObserver pour détecter l'arrivée en bas de page.
+Utilisation de useCallback pour mémoriser les gestionnaires d'événements.
+Gestion centralisée des filtres dans App et usePosts.
+
+Résultat :
+
+Chargement infini fonctionnel.
+Affichage détaillé des posts.
+Filtrage par tags opérationnel.
 ```
 
 ## Structure détaillée du projet
