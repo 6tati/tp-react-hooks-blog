@@ -3,7 +3,9 @@ import './App.css';
 import PostList from './components/PostList';
 import PostSearch from './components/PostSearch';
 import usePosts from './hooks/usePosts';
+import { useCallback } from 'react';
 // TODO: Exercice 3 - Importer ThemeToggle
+import ThemeToggle from './components/ThemeToggle';
 // TODO: Exercice 3 - Importer ThemeProvider et useTheme
 // TODO: Exercice 1 - Importer le hook usePosts
 // TODO: Exercice 2 - Importer le hook useLocalStorage
@@ -22,9 +24,15 @@ function App() {
   // TODO: Exercice 3 - Utiliser useCallback pour les gestionnaires d'événements
 
   // Gestionnaire pour la recherche
-  const handleSearchChange = (term) => {
+  const handleSearchChange = useCallback((term) => {
     setSearchTerm(term);
-  };
+  }, []);
+
+  const handleScrollModeChange = useCallback(() => {
+    setInfiniteScroll((prev) => !prev);
+  }, [setInfiniteScroll]);
+
+  
 
   // TODO: Exercice 4 - Ajouter le gestionnaire pour la sélection de tag
 
@@ -40,7 +48,7 @@ function App() {
               className="form-check-input"
               type="checkbox"
               checked={infiniteScroll}
-              onChange={() => setInfiniteScroll(!infiniteScroll)}
+             onChange={handleScrollModeChange}
               id="scrollMode"
             />
             <label className="form-check-label" htmlFor="scrollMode">
@@ -49,6 +57,7 @@ function App() {
           </div>
 
           {/* TODO: Exercice 3 - Ajouter le ThemeToggle */}
+          <ThemeToggle />
         </div>
       </header>
 

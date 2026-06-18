@@ -1,5 +1,13 @@
+import { useTheme } from '../context/ThemeContext';
+
 export default function ThemeToggle() {
+
+  const { theme, toggleTheme } = useTheme();
+
+
   return (
-    <div>ThemeToggle à implémenter</div>
+    <button className="btn btn-outline-secondary" onClick={toggleTheme}>
+      {theme === 'light' ? '🌙 Dark' : '☀️ Light'}
+    </button>
   )
 }
