@@ -78,7 +78,7 @@ function usePosts({ searchTerm = '', tag = '', limit = 10, infinite = true } = {
   useEffect(() => {
   setSkip(0);
   fetchPosts(true);
-}, [debouncedSearchTerm, tag]);
+}, [debouncedSearchTerm, tag, fetchPosts]);
   // TODO: Exercice 4 - Implémenter la fonction pour charger plus de posts
   const loadMore = useCallback(() => {
     if (!loading && posts.length < total) {
