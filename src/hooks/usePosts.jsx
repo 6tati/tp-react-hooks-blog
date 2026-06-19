@@ -46,32 +46,39 @@ function usePosts({ searchTerm = '', tag = '', limit = 10, infinite = true } = {
 
   // TODO: Exercice 1 - Implémenter la fonction pour charger les posts
   const fetchPosts = useCallback(async (reset = false) => {
-    try {
-      setLoading(true);
-      setError(null);
+  try {
+    setLoading(true);
+    setError(null);
 
-      const currentSkip = reset ? 0 : skip;
-      const response = await fetch(buildApiUrl(currentSkip));
-      const data = await response.json();
+    const currentSkip = reset ? 0 : skip;
+    const url = buildApiUrl(currentSkip);
 
-      setPosts((prevPosts) =>
-        reset ? data.posts : [...prevPosts, ...data.posts]
-      );
+    const response = await fetch(url);
 
-      setTotal(data.total);
-      setSkip(currentSkip + limit);
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setLoading(false);
+    if (!response.ok) {
+      throw new Error('Failed to fetch');
     }
-  }, [buildApiUrl, skip, limit]);
+
+    const data = await response.json();
+
+    setPosts((prevPosts) =>
+      reset ? data.posts : [...prevPosts, ...data.posts]
+    );
+
+    setTotal(data.total);
+    setSkip(currentSkip + limit);
+  } catch (err) {
+    setError(err.message);
+  } finally {
+    setLoading(false);
+  }
+}, [buildApiUrl, skip, limit]);
 
   // TODO: Exercice 1 - Utiliser useEffect pour charger les posts quand les filtres changent
   useEffect(() => {
-    setSkip(0);
-    fetchPosts(true);
-  }, [debouncedSearchTerm, tag, fetchPosts]);
+  setSkip(0);
+  fetchPosts(true);
+}, [debouncedSearchTerm, tag]);
   // TODO: Exercice 4 - Implémenter la fonction pour charger plus de posts
   const loadMore = useCallback(() => {
     if (!loading && posts.length < total) {
